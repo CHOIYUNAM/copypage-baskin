@@ -1,10 +1,1605 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="shortcut icon" href="untitled_1_Biv_icon.ico">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+	type="text/javascript"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<title>배스킨라빈스</title>
+<style media="screen">
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#wrap {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#wrapbox {
+	width: 1440px;
+	margin: 0 auto;
+}
+
+#logobar {
+	width: 100%;
+	height: 173px;
+	background-image: url('img/bg_header.gif');
+	border-top: 3px solid #ff7c98;
+	box-sizing: border-box;
+}
+
+#logobar .logobox {
+	width: 71%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+}
+
+#logobar .logobox .snsbox {
+	width: 210px;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#logobar .logobox .snsbox img {
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+}
+
+#logobar .logobox .logo {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+#logobar .logobox .contact {
+	width: 260px;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 11px;
+	cursor: pointer;
+}
+
+#menubar {
+	width: 100%;
+	height: 58px;
+	margin: 0 auto;
+	background-color: white;
+	border-top: 1px solid #e2d9d6;
+	position: relative;
+}
+
+#menubar .gnb {
+	width: 71%;
+	height: 100%;
+	margin: 0 auto;
+	cursor: pointer;
+}
+
+#menubar .gnb img {
+	width: 100%;
+}
+
+#menubar .submenu_wrap {
+	width: 100%;
+	height: 248px;
+	z-index: 100;
+	position: absolute;
+	top: 58px;
+	display: none;
+	overflow: hidden;
+	background-color: white;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	box-sizing: border-box;
+}
+
+#menubar .submenu_wrap .submenu {
+	width: 74%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+#menubar .submenu_wrap .submenu ul {
+	margin-top: 30px;
+	width: 105px;
+	text-align: center;
+	font-size: 15px;
+	color: #4b3731;
+}
+
+#menubar .submenu_wrap .submenu ul:nth-child(1) {
+	width: 200px;
+	margin-left: 20px;
+}
+
+#menubar .submenu_wrap .submenu ul:nth-child(1) img {
+	margin-top: 30px;
+	width: 100%;
+}
+
+#menubar .submenu_wrap .submenu ul:nth-child(2) {
+	width: 200px;
+	margin-left: 110px;
+}
+
+#menubar .submenu_wrap .submenu ul:nth-child(2) img {
+	margin-top: -30px;
+	width: 187px;
+}
+
+#menubar .submenu_wrap .submenu ul:nth-child(3) {
+	margin-left: 25px;
+}
+
+#menubar .submenu_wrap .submenu ul li {
+	list-style: none;
+	width: 100%;
+	height: 40px;
+	cursor: pointer;
+	font-size: 13px;
+}
+
+#menubar .submenu_wrap .submenu ul li:hover {
+	color: #ee6da7;
+}
+
+#banner {
+	width: 100%;
+	overflow: hidden;
+	border-top: 1px solid black;
+	box-sizing: border-box;
+}
+
+#banner img {
+	width: 100%;
+}
+
+#slide {
+	width: 100%;
+	height: 630px;
+}
+
+#slide .slidebox {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+#slide .slidebox .simgbox {
+	width: 500%;
+	position: absolute;
+}
+
+#slide .slidebox img {
+	width: calc(100%/ 5);
+	float: left;
+	height: 100%;
+}
+
+#slide .slidebox .lbt {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 15px;
+	cursor: pointer;
+	z-index: 100;
+}
+
+#slide .slidebox .lbt img {
+	width: 100%;
+}
+
+#slide .slidebox .rbt {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 15px;
+	cursor: pointer;
+	z-index: 100;
+}
+
+#slide .slidebox .rbt img {
+	width: 100%;
+}
+
+#slide .slidebox .mbbox {
+	width: 140px;
+	height: 30px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	bottom: 20px;
+	cursor: pointer;
+	z-index: 100;
+}
+
+#slide .slidebox .mbbox .msbt {
+	width: 10px;
+	height: 10px;
+	border-radius: 100px;
+	background-color: white;
+}
+
+#event {
+	width: 100%;
+	height: 650px;
+	margin: 0 auto;
+}
+
+#event .evtitle {
+	width: 87px;
+	margin: 0 auto;
+	margin-top: 80px;
+}
+
+#event .evlook {
+	width: 80%;
+	height: 450px;
+	margin: 0 auto;
+	margin-top: 60px;
+	position: relative;
+	overflow: hidden;
+}
+
+#event .evlook .evslbox {
+	width: 300%;
+	height: 100%;
+	position: absolute;
+}
+
+#event .evslide {
+	width: calc(100%/ 3);
+	height: 450px;
+	display: flex;
+	justify-content: space-between;
+	float: left;
+}
+
+#event .evslide .esbox {
+	width: 24%;
+	height: 100%;
+	cursor: pointer;
+}
+
+#event .evslide .esbox .estext {
+	margin-top: 20px;
+}
+
+#event .evslide .esbox .estext p {
+	font-size: 15px;
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+#event .evslide .esbox .estext span {
+	font-size: 13px;
+	color: gray;
+	margin-top: 10px;
+}
+
+#event .ebbox {
+	width: 70px;
+	height: 30px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+}
+
+#event .ebbox .evbt {
+	width: 7px;
+	height: 7px;
+	border-radius: 100px;
+	background-color: silver;
+}
+
+#brmenu {
+	position: relative;
+	height: 1157px;
+	background: url('img/bg_menu.jpg') 50% 0 no-repeat;
+}
+
+#brmenu .brtitle {
+	width: 84px;
+	position: absolute;
+	left: 50%;
+	top: 70px;
+	transform: translateX(-50%);
+}
+
+#brmenu .brbox1 p, .brbox2 p, .brbox3 p, .brbox4 p, .brbox5 p, .brbox6 p
+	{
+	font-size: 14px;
+	color: rgb(33, 33, 33);
+}
+
+#brmenu .brbox1 span, .brbox2 span, .brbox3 span, .brbox4 span, .brbox5 span,
+	.brbox6 span {
+	font-size: 12px;
+	color: gray;
+}
+
+#brmenu .brbox1 {
+	width: 395px;
+	height: 300px;
+	border-radius: 10px;
+	background-color: white;
+	position: absolute;
+	left: 24%;
+	top: 140px;
+	box-shadow: 0px 0px 15px rgba(6, 6, 6, 0.5);
+	cursor: pointer;
+}
+
+#brmenu .brbox1 .brtbox {
+	margin-left: 30px;
+}
+
+#brmenu .brbox1 h3 {
+	color: #ee6da7;
+	font-size: 15px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+#brmenu .brbox1 img {
+	position: absolute;
+	left: 42px;
+	top: -50px;
+	z-index: 100;
+	filter: drop-shadow(5px 5px 5px rgba(6, 6, 6, 0.5));
+}
+
+#brmenu .brbox2 {
+	width: 275px;
+	height: 475px;
+	border-radius: 10px;
+	background-color: white;
+	position: absolute;
+	top: 140px;
+	right: 22%;
+	box-shadow: 0px 0px 15px rgba(6, 6, 6, 0.5);
+	cursor: pointer;
+}
+
+#brmenu .brbox2 .brtbox {
+	margin-left: 30px;
+}
+
+#brmenu .brbox2 h3 {
+	color: #fecd4c;
+	font-size: 15px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+#brmenu .brbox2 img {
+	position: absolute;
+	left: 20px;
+	top: 150px;
+	z-index: 100;
+	filter: drop-shadow(5px 5px 5px rgba(6, 6, 6, 0.5));
+}
+
+#brmenu .brbox3 {
+	width: 230px;
+	height: 365px;
+	border-radius: 10px;
+	background-color: white;
+	position: absolute;
+	top: 41%;
+	left: 13%;
+	box-shadow: 0px 0px 15px rgba(6, 6, 6, 0.5);
+	cursor: pointer;
+}
+
+#brmenu .brbox3 .brtbox {
+	margin-left: 30px;
+}
+
+#brmenu .brbox3 h3 {
+	color: #ee6da7;
+	font-size: 15px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+#brmenu .brbox3 img {
+	position: absolute;
+	left: 50%;
+	top: 130px;
+	transform: translateX(-50%);
+	z-index: 100;
+	filter: drop-shadow(5px 5px 5px rgba(6, 6, 6, 0.5));
+}
+
+#brmenu .brbox4 {
+	width: 330px;
+	height: 295px;
+	border-radius: 10px;
+	background-color: white;
+	position: absolute;
+	top: 41%;
+	left: 31%;
+	box-shadow: 0px 0px 15px rgba(6, 6, 6, 0.5);
+	cursor: pointer;
+}
+
+#brmenu .brbox4 .brtbox {
+	margin-left: 30px;
+}
+
+#brmenu .brbox4 h3 {
+	color: #c28a63;
+	font-size: 15px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+#brmenu .brbox4 img {
+	position: absolute;
+	left: 100px;
+	top: 30px;
+	z-index: 100;
+	filter: drop-shadow(5px 5px 5px rgba(6, 6, 6, 0.5));
+}
+
+#brmenu .brbox5 {
+	width: 330px;
+	height: 185px;
+	border-radius: 10px;
+	background-color: white;
+	position: absolute;
+	top: 70%;
+	left: 34%;
+	box-shadow: 0px 0px 15px rgba(6, 6, 6, 0.5);
+	cursor: pointer;
+}
+
+#brmenu .brbox5 .brtbox {
+	margin-right: 30px;
+	text-align: right;
+}
+
+#brmenu .brbox5 h3 {
+	color: #ee6da7;
+	font-size: 15px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+#brmenu .brbox5 img {
+	position: absolute;
+	left: -80px;
+	top: -10px;
+	z-index: 100;
+	filter: drop-shadow(5px 5px 5px rgba(6, 6, 6, 0.5));
+}
+
+#brmenu .brbox6 {
+	width: 275px;
+	height: 185px;
+	border-radius: 10px;
+	background-color: white;
+	position: absolute;
+	right: 19%;
+	top: 56%;
+	box-shadow: 0px 0px 15px rgba(6, 6, 6, 0.5);
+	cursor: pointer;
+}
+
+#brmenu .brbox6 .brtbox {
+	margin-left: 30px;
+}
+
+#brmenu .brbox6 h3 {
+	color: #ee6da7;
+	font-size: 15px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+#brmenu .brbox6 img {
+	position: absolute;
+	left: 0;
+	top: 40px;
+	z-index: 100;
+	filter: drop-shadow(5px 5px 5px rgba(6, 6, 6, 0.5));
+}
+
+#store {
+	height: 500px;
+	width: 100%;
+}
+
+#store .sinbox {
+	width: 71%;
+	height: 100%;
+	margin: 0 auto;
+	display: flex;
+}
+
+#store .sinbox .brstore {
+	width: 50%;
+	height: 100%;
+	cursor:
+}
+
+#store .sinbox .brstore .bstitle {
+	width: 87px;
+	margin: 0 auto;
+	margin-top: 90px;
+}
+
+#store .sinbox .brstore .bsimg {
+	margin: 0 auto;
+	margin-top: 55px;
+	cursor: pointer;
+}
+
+#store .sinbox .happy {
+	width: 50%;
+	height: 100%;
+}
+
+#store .sinbox .happy .hatitle {
+	width: 244px;
+	margin: 0 auto;
+	margin-top: 90px;
+}
+
+#store .sinbox .happy .haimg {
+	margin: 0 auto;
+	margin-top: 55px;
+}
+
+#sns {
+	width: 100%;
+	height: 185px;
+}
+
+#sns .snstitle {
+	width: 36px;
+	height: 13px;
+	margin: 0 auto;
+	padding-top: 40px;
+}
+
+#sns .snsicon {
+	width: 388px;
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
+	margin: 0 auto;
+	margin-top: 35px;
+}
+
+#insta {
+	width: 100%;
+	height: 690px;
+}
+
+#insta .inbox {
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+#insta .inbox .intitle {
+	width: 96%;
+	display: flex;
+	margin: 0 auto;
+	justify-content: space-between;
+}
+
+#insta .inbox .intitle .int1, .int3 {
+	width: 425px;
+	overflow: hidden;
+}
+
+#insta .inbox .intitle .int2 {
+	width: 298px;
+}
+
+#insta .insbox {
+	width: 1165px;
+	height: 466px;
+	margin: 0 auto;
+	margin-top: 50px;
+	position: relative;
+	overflow: hidden;
+}
+
+#insta .insbox .inlbt {
+	width: 55px;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 50px;
+	line-height: 466px;
+	z-index: 100;
+	text-align: center;
+	font-weight: normal;
+	cursor: pointer;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+#insta .insbox .inrbt {
+	width: 55px;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.5);
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 50px;
+	line-height: 466px;
+	z-index: 100;
+	text-align: center;
+	font-weight: normal;
+	cursor: pointer;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+#insta .insbox .insbbox {
+	width: 300%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#insta .inbox .inimg {
+	width: 1165px;
+	height: 466px;
+	float: left;
+}
+
+#insta .inbox .inimg .ini {
+	width: 230px;
+	height: 230px;
+	overflow: hidden;
+	margin: 0 auto;
+	float: left;
+	margin-left: 3px;
+	margin-bottom: 3px;
+}
+
+#insta .inbox .inimg .ini img {
+	width: 100%;
+	height: 100%;
+}
+
+#personal {
+	height: 90px;
+	width: 100%;
+	border-top: 1px solid #fecd4c;
+	box-sizing: border-box;
+}
+
+#personal .perul {
+	width: 60%;
+	height: 100%;
+	line-height: 90px;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+	font-size: 13px;
+}
+
+#personal .perul li {
+	list-style: none;
+	color: #7d7364;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#personal .perul li:nth-child(5) {
+	color: #ee6da7;
+}
+
+#family {
+	height: 75px;
+	width: 100%;
+	background-color: #f9f8f7;
+}
+
+#family .fambox {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto;
+}
+
+#family .fambox .fa4 {
+	width: 150px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#family .fambox .fa5 select {
+	width: 140px;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid silver;
+	font-size: 12px;
+	color: silver;
+	padding: .5em;
+	background: url('img/family_size_off.png') no-repeat 95% 50%;
+	-webkit-appearance: none;
+}
+
+#family .fambox .fa5 select::-ms-expand {
+	display: none;
+}
+
+#footer {
+	width: 100%;
+	height: 235px;
+}
+
+#footer .fologo {
+	width: 128px;
+	margin: 0 auto;
+	margin-top: 45px;
+	margin-bottom: 30px;
+}
+
+#footer .fotext {
+	margin: 0 auto;
+	text-align: center;
+}
+
+#footer .fotext p {
+	font-size: 11px;
+	color: #333333;
+}
+
+#footer .fotext span {
+	display: block;
+	margin-top: 20px;
+	color: #7d7364;
+	font-size: 10px;
+}
+</style>
 </head>
 <body>
+	<div id="wrap">
+		<div id="wrapbox">
+			<div id="logobar">
+				<div class="logobox">
+					<div class="snsbox">
+						<div class="snsimg">
+							<img src="img/icon_facebook.png" alt="">
+						</div>
+						<div class="snsimg">
+							<img src="img/icon_twitter.png" alt="">
+						</div>
+						<div class="snsimg">
+							<img src="img/icon_blog.png" alt="">
+						</div>
+						<div class="snsimg">
+							<img src="img/sns_instagram.png" alt="">
+						</div>
+						<div class="snsimg">
+							<img src="img/icon_youtube.png" alt="">
+						</div>
+					</div>
+					<div class="logo">
+						<img src="img/logo_baskinrobbins.png" alt="">
+					</div>
+					<div class="contact">
+						<div class="conbox">고객센터</div>
+						<div class="conbox">영양정보</div>
+						<div class="conbox">CONTACT US</div>
+						<div class="conbox">
+							<img src="img/icon_search.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="menubar">
+				<div class="gnb">
+					<img src="img/menubar.png" alt="">
+				</div>
+				<div class="submenu_wrap">
+					<div class="submenu">
+						<ul class="sub1">
+							<li><img src="img/img_happypoint_app.jpg" alt=""></li>
+						</ul>
+						<ul class="sub2">
+							<li><img src="img/img_monthly_fom.jpg" alt=""></li>
+						</ul>
+						<ul class="sub3">
+							<li>아이스크림</li>
+							<li>아이스크림케이크</li>
+							<li>음료</li>
+							<li>커피</li>
+							<li>디저트</li>
+						</ul>
+						<ul class="sub4">
+							<li>진행중인이벤트</li>
+							<li>당첨자발표</li>
+						</ul>
+						<ul class="sub5">
+							<li>매장찾기</li>
+							<li>고객센터</li>
+						</ul>
+						<ul class="sub6">
+							<li>공지사항</li>
+							<li>보도자료</li>
+							<li>채용정보</li>
+							<li>점포개설문의</li>
+							<li>CONTACT US</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="banner">
+				<img src="img/1581404901.jpg" alt="">
+			</div>
+			<div id="slide">
+				<div class="slidebox">
+					<div class="simgbox">
+						<img src="img/1623374393.png" alt=""> <img src="img/1625978632.png"
+							alt=""> <img src="img/1581404889.png" alt=""> <img
+							src="img/1602393245.png" alt=""> <img src="img/1626057436.png"
+							alt="">
+					</div>
+					<div class="lbt">
+						<img src="img/btn_banner_prev.png" alt="">
+					</div>
+					<div class="rbt">
+						<img src="img/btn_banner_next.png" alt="">
+					</div>
+					<div class="mbbox">
+						<div class="msbt"></div>
+						<div class="msbt"></div>
+						<div class="msbt"></div>
+						<div class="msbt"></div>
+						<div class="msbt"></div>
+					</div>
+				</div>
+			</div>
+			<div id="event">
+				<div class="evtitle">
+					<img src="img/h_event.png" alt="">
+				</div>
 
+				<div class="evlook">
+					<div class="evslbox">
+
+						<div class="evslide">
+							<div class="esbox">
+								<div class="esimg">
+									<img src="img/banner_delivery.png" alt="">
+								</div>
+								<div class="estext">
+									<img src="img/stit_store.gif" alt="">
+									<p>해피오더 딜리버리로 간편하게 주문하세요!</p>
+									<span>상시진행</span>
+								</div>
+							</div>
+							<div class="esbox">
+								<div class="esimg">
+									<img src="img/banner_delivery_bm.png" alt="">
+								</div>
+								<div class="estext">
+									<img src="img/stit_store.gif" alt="">
+									<p>배달의 민족에서 빠르게 주문하세요!</p>
+									<span>상시진행</span>
+								</div>
+							</div>
+							<div class="esbox">
+								<div class="esimg">
+									<img src="img/banner_delivery_ygy.png" alt="">
+								</div>
+								<div class="estext">
+									<img src="img/stit_store.gif" alt="">
+									<p>요기요에서 손쉽게 주문하세요!</p>
+									<span>상시진행</span>
+								</div>
+							</div>
+							<div class="esbox">
+								<div class="esimg">
+									<img src="img/banner_delivery_kakao.png" alt="">
+								</div>
+								<div class="estext">
+									<img src="img/stit_store.gif" alt="">
+									<p>카카오톡 주문하기에서 편리하게 주문하세요!</p>
+									<span>상시진행</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="evslide">
+							<div class="esbox">
+								<div class="esimg">
+									<img src="img/1622875536.png" alt="">
+								</div>
+								<div class="estext">
+									<img src="img/stit_store.gif" alt="">
+									<p>제휴 할인 카드 혜택 안내</p>
+									<span>상시진행</span>
+								</div>
+							</div>
+							<div class="esbox">
+								<div class="esimg">
+									<img src="img/1604916894.png" alt="">
+								</div>
+								<div class="estext">
+									<img src="img/stit_store.gif" alt="">
+									<p>매월 25일, 50% M포인트 사용</p>
+									<span>상시진행</span>
+								</div>
+							</div>
+							<div class="esbox">
+								<div class="esimg">
+									<img src="img/1570702843.png" alt="">
+								</div>
+								<div class="estext">
+									<img src="img/stit_online.gif" alt="">
+									<p>2018 한글날 기념 무료 글꼴 공개! 배스킨라빈스체</p>
+									<span>상시진행</span>
+								</div>
+							</div>
+							<div class="esbox">
+								<div class="esimg">
+									<img src="img/1578277305.png" alt="">
+								</div>
+								<div class="estext">
+									<img src="img/stit_store.gif" alt="">
+									<p>1회용 컵 사용 줄이기 안내</p>
+									<span>상시진행</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="evslide">
+							<div class="esbox">
+								<div class="esimg">
+									<img src="img/banner_praise.png" alt="">
+								</div>
+								<div class="estext">
+									<img src="img/stit_store.gif" alt="">
+									<p>2020년 3분기 고객 BEST 칭찬점포 안내</p>
+								</div>
+							</div>
+							<div class="esbox">
+								<div class="esimg">
+									<img src="" alt="">
+								</div>
+								<div class="estext">
+									<img src="" alt="">
+								</div>
+							</div>
+							<div class="esbox">
+								<div class="esimg">
+									<img src="" alt="">
+								</div>
+								<div class="estext">
+									<img src="" alt="">
+								</div>
+							</div>
+							<div class="esbox">
+								<div class="esimg">
+									<img src="" alt="">
+								</div>
+								<div class="estext">
+									<img src="" alt="">
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="ebbox">
+					<div class="evbt"></div>
+					<div class="evbt"></div>
+					<div class="evbt"></div>
+				</div>
+			</div>
+			<div id="brmenu">
+				<div class="brtitle">
+					<img src="img/h_menu.png" alt="">
+				</div>
+				<div class="brbox1">
+					<img src="img/ice1.png" alt="">
+					<div class="brtbox">
+						<h3>ICECREAM</h3>
+						<p>아이스크림의 기준,</p>
+						<p>배스킨라빈스</p>
+						<span>more</span>
+					</div>
+				</div>
+				<div class="brbox2">
+					<img src="img/ice6.png" alt="">
+					<div class="brtbox">
+						<h3>
+							ICECREAM<br>CAKE
+						</h3>
+						<p>아이와 어른이 좋아하는</p>
+						<p>아이스크림을 하나의 케이크에서</p>
+						<p>모두 즐기세요!</p>
+						<span>more</span>
+					</div>
+				</div>
+				<div class="brbox3">
+					<img src="img/ice2.png" alt="">
+					<div class="brtbox">
+						<h3>BEVERAGE</h3>
+						<p>아이스크림으로 즐기는</p>
+						<p>배스킨라빈스만의 음료!</p>
+						<span>more</span>
+					</div>
+				</div>
+				<div class="brbox4">
+					<img src="img/ice3.png" alt="">
+					<div class="brtbox">
+						<h3>COFFEE</h3>
+						<p>배스킨라빈스만의</p>
+						<p>부드러운 촉감과</p>
+						<p>달콤한 풍미!</p>
+						<span>more</span>
+					</div>
+				</div>
+				<div class="brbox5">
+					<img src="img/ice5.png" alt="">
+					<div class="brtbox">
+						<h3>DESSERT</h3>
+						<p>아이스크림을 더욱 재미있게!</p>
+						<p>간편하게 즐기는 방법!</p>
+						<span>more</span>
+					</div>
+				</div>
+				<div class="brbox6">
+					<img src="img/ice4.png" alt="">
+					<div class="brtbox">
+						<h3>GIFT</h3>
+						<p>특별한 날, 배스킨라빈스로</p>
+						<p>달콤한 선물을 전해보세요!</p>
+						<span>more</span>
+					</div>
+				</div>
+			</div>
+			<div id="store">
+				<div class="sinbox">
+					<div class="brstore">
+						<div class="bstitle">
+							<img src="img/h_store.png" alt="">
+						</div>
+						<div class="bsimg">
+							<img src="img/img_store.jpg" alt="">
+						</div>
+					</div>
+					<div class="happy">
+						<div class="hatitle">
+							<img src="img/h_happyorder_delivery.png" alt="">
+						</div>
+						<div class="haimg">
+							<img src="img/img_happyorder_delivery.png" alt="">
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div id="sns">
+				<div class="snstitle">
+					<img src="img/h_sns.png" alt="">
+				</div>
+				<div class="snsicon">
+					<img src="img/sns_facebook.png" alt=""> <img
+						src="img/sns_twitter.png" alt=""> <img src="img/sns_blog.png" alt="">
+					<img src="img/sns_instagram.png" alt=""> <img
+						src="img/sns_youtube.png" alt="">
+				</div>
+			</div>
+			<div id="insta">
+				<div class="inbox">
+					<div class="intitle">
+						<div class="int1">
+							<img src="img/line.png" alt="">
+						</div>
+						<div class="int2">
+							<img src="img/tit_sns.png" alt="">
+						</div>
+						<div class="int3">
+							<img src="img/line.png" alt="">
+						</div>
+					</div>
+					<div class="insbox">
+						<div class="insbbox">
+
+							<div class="inimg">
+								<div class="ini">
+									<img src="img/125777397_126434722603874_8466568225516728839_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/125505504_209027790668197_7056247811079929955_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/125352515_193221495712610_7865457613745384644_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/125463610_304219187297814_6122451181086809667_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/125389604_781084719115935_1008528598786974525_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/125456148_3340491742744550_2746837034996864892_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/125371587_211185193736609_1087462611963308371_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/125549703_1078477499241914_8930435959956383717_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/125260090_380311633283799_3586857539392153101_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/125204876_402490374278890_3156627444361432806_n.jpg"
+										alt="">
+								</div>
+							</div>
+
+							<div class="inimg">
+								<div class="ini">
+									<img src="img/124017401_190093899292880_188364165560685770_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124036824_442953963402634_4696978276802743248_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124040871_202342181260004_4155679881710160046_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124091082_380957016436155_5535890948148393275_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124106193_214657183398985_3249418717469079209_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124122365_1302106343515312_2948497358677376181_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124145022_1257503754627828_2438723154534957255_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124146726_812652475973488_1918141214402302468_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124196691_202292371328428_3181728331767451758_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124253445_165661985229322_8664041849842002618_n.jpg"
+										alt="">
+								</div>
+							</div>
+
+							<div class="inimg">
+								<div class="ini">
+									<img src="img/124273202_1863468223807897_8513130847938836089_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124280035_997485807401185_5738848162376025027_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124294570_816642532457855_7926960192845677059_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124351356_1260903337611699_7570435182517179718_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124400803_370380170740595_5155625719413166248_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124403166_659547491594564_4525704995433750145_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124415973_1886738581468485_2502257033113232143_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124428647_182682273443480_1918560441139683402_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124443975_713598669552343_5752229020577299337_n.jpg"
+										alt="">
+								</div>
+								<div class="ini">
+									<img src="img/124454417_314798829928087_3264424678360515155_n.jpg"
+										alt="">
+								</div>
+							</div>
+
+						</div>
+						<div class="inlbt">
+							<h3><</h3>
+						</div>
+						<div class="inrbt">
+							<h3>></h3>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="personal">
+				<ul class="perul">
+					<li>점포개설문의</li>
+					<li>채용문의</li>
+					<li>윤리신고센터</li>
+					<li>이용약관</li>
+					<li>개인정보처리방침</li>
+					<li>영상정보처리기기운영관리방침</li>
+					<li>거래희망회사 사전등록</li>
+				</ul>
+			</div>
+			<div id="family">
+				<div class="fambox">
+					<div class="fa1">
+						<img src="img/btn_happypoint.png" alt="">
+					</div>
+					<div class="fa2">
+						<img src="img/btn_happymarket.png" alt="">
+					</div>
+					<div class="fa3">
+						<img src="img/btn_spc_story.png" alt="">
+					</div>
+					<div class="fa4">
+						<div class="fain4_1">
+							<img src="img/btn_norton.gif" alt="">
+						</div>
+						<div class="fain4_2">
+							<img src="img/btn_ccm.gif" alt="">
+						</div>
+						<div class="fain4_3">
+							<img src="img/btn_ksa.png" alt="">
+						</div>
+					</div>
+					<div class="fa5">
+						<select name="family site">
+							<option value="FAMILY SITE">FAMILY SITE</option>
+							<option value="배스킨스쿨">배스킨스쿨</option>
+							<option value="SPC그룹사이트">SPC그룹사이트</option>
+							<option value="SPC MAGAZINE">SPC MAGAZINE</option>
+							<option value="BR코리아">BR코리아</option>
+							<option value="해피포인트카드">해피포인트카드</option>
+							<option value="파스꾸찌">파스꾸찌</option>
+							<option value="삼립">삼립</option>
+							<option value="파리바게트">파리바게트</option>
+							<option value="던킨도너츠">던킨도너츠</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div id="footer">
+				<div class="fologo">
+					<img src="img/footer_logo.png" alt="">
+				</div>
+				<div class="fotext">
+					<p>사업자 등록번호 : 303-81-09535 &nbsp&nbsp&nbsp 비알코리아(주) 대표이사 김창대
+						&nbsp&nbsp&nbsp 서울특별시 서초구 남부순환로 2620(양재동 11-149번지)</p>
+					<p>TEL : 080-555-3131 &nbsp&nbsp&nbsp 개인정보관리책임자 : 김경우</p>
+					<span>Copyrightⓒ 2016 BRKOREA Company.All Rights Reserved.</span>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		//메인슬라이드 시작
+		var main_slide_count = 0;
+		var main_slide_px = -$(".slidebox").width();
+		var bgc = setInterval(main_slide_event, 2000);
+		// var main_slide_px = $(".slidebox").width();
+		var msbt = document.getElementsByClassName('msbt');
+
+		main_slide_event()
+
+		$(".lbt").click(function() {
+			if (main_slide_count > 0) {
+				main_slide_count--;
+				main_slide_event()
+			}
+		});
+		$(".rbt").click(function() {
+			if (main_slide_count < 4) {
+				main_slide_count++;
+				main_slide_event()
+			}
+		});
+
+		function main_slide_event() {
+			point_all_black();
+			$(msbt[main_slide_count]).css({
+				'background-color' : "black",
+				'transform' : "scale(1.5)"
+			});
+			if (main_slide_count == 0) {
+				$(".simgbox").stop().animate({
+					left : main_slide_px * main_slide_count + 'px'
+				}, 200);
+			} else if (main_slide_count == 1) {
+				$(".simgbox").stop().animate({
+					left : main_slide_px * main_slide_count + 'px'
+				}, 200);
+			} else if (main_slide_count == 2) {
+				$(".simgbox").stop().animate({
+					left : main_slide_px * main_slide_count + 'px'
+				}, 200);
+			} else if (main_slide_count == 3) {
+				$(".simgbox").stop().animate({
+					left : main_slide_px * main_slide_count + 'px'
+				}, 200);
+			} else if (main_slide_count == 4) {
+				$(".simgbox").stop().animate({
+					left : main_slide_px * main_slide_count + 'px'
+				}, 200);
+				main_slide_count = -1;
+			}
+			main_slide_count++;
+		}
+		;
+
+		function point_all_black() {
+			$(msbt[0]).css({
+				'background-color' : "white",
+				'transform' : "scale(1)"
+			});
+			$(msbt[1]).css({
+				'background-color' : "white",
+				'transform' : "scale(1)"
+			});
+			$(msbt[2]).css({
+				'background-color' : "white",
+				'transform' : "scale(1)"
+			});
+			$(msbt[3]).css({
+				'background-color' : "white",
+				'transform' : "scale(1)"
+			});
+			$(msbt[4]).css({
+				'background-color' : "white",
+				'transform' : "scale(1)"
+			});
+		}
+
+		$(msbt[0]).click(function() {
+			main_slide_count = 0;
+			main_slide_event();
+		});
+		$(msbt[1]).click(function() {
+			main_slide_event();
+		});
+		$(msbt[2]).click(function() {
+			main_slide_event();
+		});
+		$(msbt[3]).click(function() {
+			main_slide_event();
+		});
+		$(msbt[4]).click(function() {
+			main_slide_event();
+		});
+		// 메인슬라이드 끝
+
+		// 이벤트슬라이드 시작
+		var sub_slide_count = 0;
+		var sub_slide_px = -$(".evlook").width();
+		var evbt = document.getElementsByClassName('evbt');
+
+		sub_slide_event()
+
+		$(evbt[0]).click(function() {
+			$(".evslbox").stop().animate({
+				left : sub_slide_px * 0
+			}, 200);
+		});
+		$(evbt[1]).click(function() {
+			$(".evslbox").stop().animate({
+				left : sub_slide_px * 1
+			}, 200);
+		});
+		$(evbt[2]).click(function() {
+			$(".evslbox").stop().animate({
+				left : sub_slide_px * 2
+			}, 200);
+		});
+
+		function sub_slide_event() {
+			point_all_black2();
+			$(".evslbox").stop().animate({
+				left : sub_slide_px * sub_slide_count + 'px'
+			}, 200)
+			$(evbt[sub_slide_count]).css({
+				'background-color' : "black",
+				'transform' : "scale(1.5)"
+			});
+		}
+		;
+
+		function point_all_black2() {
+			$(evbt[0]).css({
+				'background-color' : "silver",
+				'transform' : "scale(1)"
+			});
+			$(evbt[1]).css({
+				'background-color' : "silver",
+				'transform' : "scale(1)"
+			});
+			$(evbt[2]).css({
+				'background-color' : "silver",
+				'transform' : "scale(1)"
+			});
+		}
+
+		$(evbt[0]).click(function() {
+			sub_slide_count = 0;
+			sub_slide_event();
+		});
+		$(evbt[1]).click(function() {
+			sub_slide_count = 1;
+			sub_slide_event();
+		});
+		$(evbt[2]).click(function() {
+			sub_slide_count = 2;
+			sub_slide_event();
+		});
+		// 서브 슬라이드 끝
+
+		//마우스오버
+		$(".inimg").mouseover(function() {
+			$(".inlbt").css({
+				"opacity" : "1"
+			});
+			$(".inrbt").css({
+				"opacity" : "1"
+			});
+		});
+		$(".inimg").mouseout(function() {
+			$(".inlbt").css({
+				"opacity" : "0"
+			});
+			$(".inrbt").css({
+				"opacity" : "0"
+			});
+		});
+
+		$(".inlbt").mouseover(function() {
+			$(".inlbt").css({
+				"opacity" : "1"
+			});
+			$(".inrbt").css({
+				"opacity" : "1"
+			});
+		});
+		$(".inlbt").mouseout(function() {
+			$(".inlbt").css({
+				"opacity" : "0"
+			});
+			$(".inrbt").css({
+				"opacity" : "0"
+			});
+		});
+
+		$(".inrbt").mouseover(function() {
+			$(".inlbt").css({
+				"opacity" : "1"
+			});
+			$(".inrbt").css({
+				"opacity" : "1"
+			});
+		});
+		$(".inrbt").mouseout(function() {
+			$(".inlbt").css({
+				"opacity" : "0"
+			});
+			$(".inrbt").css({
+				"opacity" : "0"
+			});
+		});
+		// 마우스 오버 끝
+
+		// 인스타슬라이드시작
+		var insta_slide_count = 0;
+		var insta_slide_px = -$(".insbox").width();
+
+		insta_slide_event()
+
+		$(".inlbt").click(function() {
+			if (insta_slide_count > 0) {
+				insta_slide_count--;
+				insta_slide_event()
+			}
+		});
+
+		$(".inrbt").click(function() {
+			if (insta_slide_count < 2) {
+				insta_slide_count++;
+				insta_slide_event()
+			}
+		});
+
+		function insta_slide_event() {
+			$(".insbbox").stop().animate({
+				left : insta_slide_px * insta_slide_count + 'px'
+			}, 200)
+		}
+		;
+		// 인스타슬라이드끝
+
+		// 메뉴바슬라이드
+
+		$(".gnb").mouseover(function() {
+			$(".submenu_wrap").stop().slideDown();
+		});
+		$(".gnb").mouseout(function() {
+			$(".submenu_wrap").stop().slideUp();
+		});
+		$(".submenu").mouseover(function() {
+			$(".submenu_wrap").stop().slideDown();
+		});
+		$(".submenu").mouseout(function() {
+			$(".submenu_wrap").stop().slideUp();
+		});
+
+	});
+</script>
 </html>
